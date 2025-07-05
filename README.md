@@ -10,7 +10,7 @@ This project demonstrates the power of combining biodiversity data with satellit
 - 📊 6,314 training samples with 14 climate variables
 - 🌡️ TerraClimate data integration (1958-present)
 - 🗺️ Geospatial analysis for precise location-based predictions
-- 🤖 Binary classification with Logistic Regression
+- 🤖 Binary classification with Random Forest
 - 📈 Comprehensive model evaluation and validation
 - 🎓 Educational focus for environmental data science
 
@@ -68,6 +68,7 @@ biodiversity_data_Challenge/
 ├── Validation_Template.csv                 # Validation dataset (2,002 samples)
 ├── Biodiversity_Challenge_Overview.pdf    # Project overview document
 ├── Group 6 - Value Case.pdf              # Value case analysis
+├── Group 6 - Project Presentation.pptx   # Final project presentation
 └── README.md                             # This file
 ```
 
@@ -85,7 +86,7 @@ biodiversity_data_Challenge/
 
 ### Machine Learning Approach
 
-- **Algorithm**: Logistic Regression
+- **Algorithm**: Random Forest Classifier
 - **Preprocessing**: 
   - Missing value imputation (median)
   - Feature scaling (MinMaxScaler)
@@ -176,4 +177,78 @@ This project is for educational purposes. Please refer to the original data sour
 
 ---
 
-**Note**: This project demonstrates the application of machine learning techniques to biodiversity conservation and environmental science, providing valuable insights into species-environment relationships. 
+## 🎯 Final Findings and Results
+
+### Model Performance Summary
+
+Our Random Forest model achieved the following performance metrics:
+
+#### **In-Sample Performance (Training Data)**
+- **Overall Accuracy**: 97%
+- **Precision**: 98% (Class 0), 97% (Class 1)
+- **Recall**: 95% (Class 0), 99% (Class 1)
+- **F1-Score**: 97% (Class 0), 98% (Class 1)
+
+#### **Out-of-Sample Performance (Test Data)**
+- **Overall Accuracy**: 75%
+- **Precision**: 70% (Class 0), 78% (Class 1)
+- **Recall**: 65% (Class 0), 82% (Class 1)
+- **F1-Score**: 67% (Class 0), 80% (Class 1)
+
+### Key Insights
+
+#### **Feature Importance Analysis**
+The Random Forest model identified the following climate variables as most important for predicting frog presence:
+
+1. **Precipitation (ppt)** - 10.95% importance
+2. **Actual Evapotranspiration (aet)** - 10.66% importance
+3. **Downward Shortwave Radiation (srad)** - 9.67% importance
+4. **Potential Evapotranspiration (pet)** - 9.41% importance
+5. **Climate Water Deficit (def)** - 9.21% importance
+6. **Vapor Pressure (vap)** - 9.03% importance
+7. **Palmer Drought Severity Index (pdsi)** - 7.68% importance
+
+#### **Environmental Factors Driving Frog Distribution**
+
+1. **Water Availability**: Precipitation and evapotranspiration are the most critical factors, indicating frogs prefer areas with adequate water supply
+2. **Solar Radiation**: Moderate levels of solar radiation support frog habitats, likely through vegetation growth and temperature regulation
+3. **Climate Balance**: The balance between potential and actual evapotranspiration suggests frogs prefer areas with stable moisture conditions
+4. **Drought Conditions**: The Palmer Drought Severity Index shows moderate importance, indicating frogs are sensitive to drought conditions
+
+### Model Architecture
+
+- **Algorithm**: Random Forest Classifier with 100 estimators
+- **Max Depth**: 50 (to prevent overfitting)
+- **Feature Selection**: 7 most important climate variables
+- **Preprocessing**: Median imputation + MinMaxScaler
+- **Data Split**: 70% training, 30% testing with stratification
+
+### Validation Results
+
+The model successfully generated predictions for 2,000 validation locations across southeastern Australia, providing binary presence/absence predictions based on the learned environmental relationships.
+
+### Environmental Implications
+
+1. **Habitat Suitability**: The model can identify areas with suitable environmental conditions for frog species
+2. **Climate Change Impact**: The model framework can be adapted to assess how climate change might affect frog distributions
+3. **Conservation Planning**: Results can inform habitat protection and restoration efforts
+4. **Biodiversity Monitoring**: The approach can be extended to other species and regions
+
+### Technical Achievements
+
+- **Geospatial Integration**: Successfully combined point location data with raster climate data
+- **Feature Engineering**: Identified the most predictive climate variables
+- **Model Optimization**: Achieved good balance between performance and generalization
+- **Scalable Framework**: The methodology can be applied to other species and regions
+
+### Future Work
+
+1. **Model Enhancement**: Explore ensemble methods and deep learning approaches
+2. **Temporal Analysis**: Incorporate seasonal and interannual climate variations
+3. **Multi-species Modeling**: Extend to multiple frog species simultaneously
+4. **Climate Change Scenarios**: Model future distributions under climate change projections
+5. **Habitat Connectivity**: Incorporate landscape connectivity factors
+
+---
+
+**Note**: This project demonstrates the application of machine learning techniques to biodiversity conservation and environmental science, providing valuable insights into species-environment relationships. The final model successfully predicts frog presence with 75% accuracy on unseen data, highlighting the potential of satellite-derived climate data for biodiversity modeling and conservation planning. 
